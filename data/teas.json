@@ -1,0 +1,20 @@
+{
+  "teas": [
+    {
+      "id": 1,
+      "name": "Earl Grey",
+      "type": "black",
+      "description": "Classic black tea flavored with oil of bergamot",
+      "price": 12.99,
+      "countInStock": 50
+    },
+    {
+      "id": 2,
+      "name": "Sencha",
+      "type": "green",
+      "description": "Traditional Japanese green tea",
+      "price": 15.99,
+      "countInStock": 30
+    }
+  ]
+}
