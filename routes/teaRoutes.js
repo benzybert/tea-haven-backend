@@ -1,14 +1,35 @@
 const express = require('express');
 const router = express.Router();
 const teaController = require('../controllers/teaController');
+const auth = require('../middleware/auth');
+const validate = require('../middleware/validate');
+const validators = require('../utils/validators');
+const rateLimiter = require('../middleware/rateLimiter');
 
-// Get all teas
-router.get('/search', teaController.getAllTeas);
+// Public routes
+router.get('/search', rateLimiter, teaController.getAllTeas);
+router.get('/:id', rateLimiter, teaController.getTeaById);
+router.get('/type/:type', rateLimiter, teaController.getTeasByType);
 
-// Get tea by id
-router.get('/:id', teaController.getTeaById);
+// Protected routes
+router.post('/', 
+    auth,
+    rateLimiter,
+    validate(validators.tea),
+    teaController.createTea
+);
 
-// Get teas by type
-router.get('/type/:type', teaController.getTeasByType);
+router.put('/:id',
+    auth,
+    rateLimiter,
+    validate(validators.tea),
+    teaController.updateTea
+);
+
+router.delete('/:id',
+    auth,
+    rateLimiter,
+    teaController.deleteTea
+);
 
 module.exports = router;
