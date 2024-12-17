@@ -1,14 +1,14 @@
-const express = require('express');
-const cors = require('cors');
-const connectDB = require('./config/db');
-const { port } = require('./config/config');
-const errorHandler = require('./middleware/errorHandler');
+const express = require('express'); // Import express
+const cors = require('cors'); // Import cors
+const connectDB = require('./config/db'); // Import connectDB
+const { port } = require('./config/config'); // Import port
+const errorHandler = require('./middleware/errorHandler'); // Import errorHandler
 
-const app = express();
+const app = express(); // Initialize express
 
 // Middleware to parse incoming requests
-app.use(cors());
-app.use(express.json());
+app.use(cors()); 
+app.use(express.json()); 
 
 // Connect to MongoDB
 connectDB();

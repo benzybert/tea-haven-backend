@@ -1,6 +1,7 @@
 const mongoose = require('mongoose'); 
 const { mongoUri } = require('./config'); 
 
+// this function is used to connect to the MongoDB database using the mongoose library.
 const connectDB = async () => {    
   try {
     await mongoose.connect(mongoUri, {

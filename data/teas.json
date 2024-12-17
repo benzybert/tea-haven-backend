@@ -2,19 +2,135 @@
   "teas": [
     {
       "id": 1,
-      "name": "Earl Grey",
-      "type": "black",
-      "description": "Classic black tea flavored with oil of bergamot",
-      "price": 12.99,
-      "countInStock": 50
+      "title": "Japanese Sencha",
+      "type": "green",
+      "price": 24.99,
+      "description": "Premium green tea with a delicate, grassy sweet flavor",
+      "image": "/images/sencha.jpg",
+      "origin": "Japan",
+      "steepTime": "2-3 minutes",
+      "temperature": "160-170°F"
     },
     {
       "id": 2,
-      "name": "Sencha",
+      "title": "Earl Grey Supreme",
+      "type": "black",
+      "price": 22.99,
+      "description": "Classic black tea flavored with bergamot oil and blue cornflowers",
+      "image": "/images/earl-grey.jpg",
+      "origin": "India/Sri Lanka",
+      "steepTime": "3-5 minutes",
+      "temperature": "200-212°F"
+    },
+    {
+      "id": 3,
+      "title": "Dragon Well (Longjing)",
       "type": "green",
-      "description": "Traditional Japanese green tea",
-      "price": 15.99,
-      "countInStock": 30
+      "price": 29.99,
+      "description": "Hand-pressed Chinese green tea with chestnut notes",
+      "image": "/images/dragon-well.jpg",
+      "origin": "China",
+      "steepTime": "2-3 minutes",
+      "temperature": "170-180°F"
+    },
+    {
+      "id": 4,
+      "title": "Chamomile Bliss",
+      "type": "herbal",
+      "price": 18.99,
+      "description": "Soothing herbal tea with honey and floral notes",
+      "image": "/images/chamomile.jpg",
+      "origin": "Egypt",
+      "steepTime": "5-7 minutes",
+      "temperature": "200-212°F"
+    },
+    {
+      "id": 5,
+      "title": "Darjeeling First Flush",
+      "type": "black",
+      "price": 34.99,
+      "description": "Light and floral black tea from the foothills of the Himalayas",
+      "image": "/images/darjeeling.jpg",
+      "origin": "India",
+      "steepTime": "3-4 minutes",
+      "temperature": "185-205°F"
+    },
+    {
+      "id": 6,
+      "title": "Jasmine Pearl",
+      "type": "green",
+      "price": 27.99,
+      "description": "Hand-rolled green tea scented with jasmine flowers",
+      "image": "/images/jasmine-pearl.jpg",
+      "origin": "China",
+      "steepTime": "2-3 minutes",
+      "temperature": "165-175°F"
+    },
+    {
+      "id": 7,
+      "title": "Moroccan Mint",
+      "type": "green",
+      "price": 21.99,
+      "description": "Refreshing blend of green tea and peppermint",
+      "image": "/images/moroccan-mint.jpg",
+      "origin": "Morocco",
+      "steepTime": "2-3 minutes",
+      "temperature": "170-180°F"
+    },
+    {
+      "id": 8,
+      "title": "English Breakfast",
+      "type": "black",
+      "price": 19.99,
+      "description": "Robust and full-bodied morning tea blend",
+      "image": "/images/english-breakfast.jpg",
+      "origin": "Sri Lanka/Kenya",
+      "steepTime": "4-5 minutes",
+      "temperature": "200-212°F"
+    },
+    {
+      "id": 9,
+      "title": "Rooibos Vanilla",
+      "type": "herbal",
+      "price": 20.99,
+      "description": "Caffeine-free red tea with sweet vanilla notes",
+      "image": "/images/rooibos.jpg",
+      "origin": "South Africa",
+      "steepTime": "5-7 minutes",
+      "temperature": "200-212°F"
+    },
+    {
+      "id": 10,
+      "title": "Oolong Iron Goddess",
+      "type": "oolong",
+      "price": 32.99,
+      "description": "Semi-oxidized tea with orchid and mineral notes",
+      "image": "/images/iron-goddess.jpg",
+      "origin": "China",
+      "steepTime": "2-5 minutes",
+      "temperature": "185-205°F"
+    },
+    {
+      "id": 11,
+      "title": "Peppermint",
+      "type": "herbal",
+      "price": 17.99,
+      "description": "Pure peppermint leaves with refreshing coolness",
+      "image": "/images/peppermint.jpg",
+      "origin": "USA",
+      "steepTime": "5-7 minutes",
+      "temperature": "200-212°F"
+    },
+    {
+      "id": 12,
+      "title": "Matcha Ceremonial",
+      "type": "green",
+      "price": 39.99,
+      "description": "Premium stone-ground green tea powder",
+      "image": "/images/matcha.jpg",
+      "origin": "Japan",
+      "steepTime": "Whisk in hot water",
+      "temperature": "160-170°F"
     }
   ]
 }

@@ -1,3 +1,7 @@
+// backend/controllers/teaController.js
+// This controller will handle the logic for fetching tea data.
+//  It will use the teaService to return the required data to the client.
+
 const teaService = require('../services/teaService');
 
 exports.getAllTeas = (req, res, next) => {
