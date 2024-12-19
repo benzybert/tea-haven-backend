@@ -1,44 +1,45 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const Product = require('../models/Product');
 const teasData = require('../data/teas.json');
-require('dotenv').config();
 
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+console.log('Starting seed script...');
+console.log(`MongoDB URI: ${process.env.MONGODB_URI}`);
 
-const transformTeaToProduct = (tea) => ({
-  name: tea.title,
-  description: tea.description,
-  price: tea.price,
-  category: tea.type,
-  image: tea.image,
-  countInStock: 100  // default value
-});
+mongoose.connect(process.env.MONGODB_URI)
+  .then(async () => {
+    console.log('Connected to MongoDB');
+    console.log(`Found ${teasData.teas.length} teas in JSON file`);
 
-const seedProducts = async () => {
-  try {
     // Clear existing products
     await Product.deleteMany({});
     console.log('Cleared existing products');
-    
-    // Transform and insert teas
-    const products = teasData.teas.map(transformTeaToProduct);
-    console.log(`Preparing to insert ${products.length} products...`);
-    
-    const insertedProducts = await Product.insertMany(products);
-    console.log(`Successfully inserted ${insertedProducts.length} products`);
-    
-    // Verify the insertion
+
+    // Transform tea data
+    const products = teasData.teas.map(tea => ({
+      name: tea.title,
+      description: tea.description,
+      price: tea.price,
+      category: tea.type,
+      image: tea.image,
+      countInStock: 100
+    }));
+
+    console.log('Transformed tea data to products');
+    console.log('First product:', products[0]);
+
+    // Insert products
+    const result = await Product.insertMany(products);
+    console.log(`Inserted ${result.length} products`);
+
+    // Verify
     const count = await Product.countDocuments();
     console.log(`Total products in database: ${count}`);
-    
-  } catch (error) {
-    console.error('Error seeding database:', error);
-  } finally {
-    mongoose.connection.close();
-  }
-};
 
-seedProducts();
+    mongoose.connection.close();
+    console.log('Database connection closed');
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    mongoose.connection.close();
+  });
