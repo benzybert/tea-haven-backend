@@ -47,7 +47,7 @@ The backend of the Tea Haven E-commerce application is built to handle all serve
     ```bash
     npm start
     ```
-2. The server will run on `http://localhost:5001`.
+2. The server will run on `http://localhost:5000`.
 
 ## API Endpoints
 - `POST /api/auth/register` - Register a new user
