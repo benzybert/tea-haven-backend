@@ -1,26 +1,34 @@
-const express = require('express'); // Import express
-const cors = require('cors'); // Import cors
-const connectDB = require('./config/db'); // Import connectDB
-const { port } = require('./config/config'); // Import port
-const errorHandler = require('./middleware/errorHandler'); // Import errorHandler
+const express = require('express');
+const cors = require('cors');
+require('dotenv').config();
 
-const app = express(); // Initialize express
+const app = express();
 
-// Middleware to parse incoming requests
-app.use(cors()); 
-app.use(express.json()); 
+// Middleware
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
+app.use(express.json());
 
 // Connect to MongoDB
-connectDB();
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log('MongoDB connection error:', err));
 
 // Routes
-const teaRoutes = require('./routes/teaRoutes');
-const authRoutes = require('./src/routes/auth.routes'); // Add this line
+app.use('/api/auth', require('./src/routes/auth'));
+app.use('/api/teas', require('./src/routes/teas'));
 
-app.use('/api/teas', teaRoutes);
-app.use('/api/auth', authRoutes); // Add this line
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Something went wrong!' });
+});
 
-// Error Handler (should be last)
-app.use(errorHandler);
+const PORT = process.env.PORT || 5001;
 
-app.listen(port, () => console.log(`Server running on port ${port}`));
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
