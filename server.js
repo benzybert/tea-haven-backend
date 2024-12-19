@@ -21,6 +21,7 @@ mongoose.connect(process.env.MONGODB_URI)
   .catch(err => console.log('MongoDB connection error:', err));
 
 // Routes
+app.use('/api/auth', require('./routes/auth'));
 app.use('/api/teas', require('./routes/teaRoutes'));
 
 // Error handling middleware
