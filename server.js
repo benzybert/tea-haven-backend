@@ -14,11 +14,13 @@ app.use(express.json());
 // Connect to MongoDB
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log('MongoDB Connected'))
+  .then(() => {
+    console.log('MongoDB Connected');
+    console.log('Fetching all teas...');
+  })
   .catch(err => console.log('MongoDB connection error:', err));
 
 // Routes
-app.use('/api/auth', require('./routes/auth'));
 app.use('/api/teas', require('./routes/teaRoutes'));
 
 // Error handling middleware
