@@ -27,7 +27,8 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: 'Something went wrong!' });
 });
 
-const PORT = process.env.PORT || 5001;
+// Explicitly use port 5001
+const PORT = 5001;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
