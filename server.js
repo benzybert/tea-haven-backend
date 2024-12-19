@@ -15,10 +15,7 @@ connectDB();
 
 // Routes
 const teaRoutes = require('./routes/teaRoutes');
-const authRoutes = require('./src/routes/auth.routes'); // Add this line
-
 app.use('/api/teas', teaRoutes);
-app.use('/api/auth', authRoutes); // Add this line
 
 // Error Handler (should be last)
 app.use(errorHandler);
