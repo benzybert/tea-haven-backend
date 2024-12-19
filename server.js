@@ -18,8 +18,8 @@ mongoose.connect(process.env.MONGODB_URI)
   .catch(err => console.log('MongoDB connection error:', err));
 
 // Routes
-app.use('/api/auth', require('./src/routes/auth'));
-app.use('/api/teas', require('./src/routes/teas'));
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/teas', require('./routes/teaRoutes'));
 
 // Error handling middleware
 app.use((err, req, res, next) => {
