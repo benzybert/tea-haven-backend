@@ -1,30 +1,29 @@
-// backend/controllers/teaController.js
-// This controller will handle the logic for fetching tea data.
-//  It will use the teaService to return the required data to the client.
+const Product = require('../models/Product');
 
-const teaService = require('../services/teaService');
-
-exports.getAllTeas = (req, res, next) => {
+exports.getAllTeas = async (req, res, next) => {
   try {
-    const teas = teaService.getAllTeas();
+    const teas = await Product.find({});
     res.json({ products: teas });
   } catch (error) {
     next(error);
   }
 };
 
-exports.getTeaById = (req, res, next) => {
+exports.getTeaById = async (req, res, next) => {
   try {
-    const tea = teaService.getTeaById(req.params.id);
+    const tea = await Product.findById(req.params.id);
+    if (!tea) {
+      return res.status(404).json({ message: 'Tea not found' });
+    }
     res.json(tea);
   } catch (error) {
     next(error);
   }
 };
 
-exports.getTeasByType = (req, res, next) => {
+exports.getTeasByType = async (req, res, next) => {
   try {
-    const teas = teaService.getTeasByType(req.params.type);
+    const teas = await Product.find({ category: req.params.type });
     res.json({ products: teas });
   } catch (error) {
     next(error);

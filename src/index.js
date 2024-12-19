@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -12,17 +13,16 @@ app.use(cors({
 app.use(express.json());
 
 // Connect to MongoDB
-const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI)
-  .then(() => {
-    console.log('MongoDB Connected');
-    console.log('Fetching all teas...');
-  })
-  .catch(err => console.log('MongoDB connection error:', err));
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log('MongoDB Connected'))
+.catch(err => console.log('MongoDB connection error:', err));
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
-app.use('/api/teas', require('./routes/teaRoutes'));
+app.use('/api/teas', require('./routes/teas'));
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -30,8 +30,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: 'Something went wrong!' });
 });
 
-// Explicitly use port 5001
-const PORT = 5001;
+const PORT = process.env.PORT || 5001;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
