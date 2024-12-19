@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const Product = require('../models/Product');
 const teasData = require('../data/teas.json');
+require('dotenv').config();
 
-mongoose.connect('mongodb://localhost:27017/tea-haven', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -20,12 +21,18 @@ const seedProducts = async () => {
   try {
     // Clear existing products
     await Product.deleteMany({});
+    console.log('Cleared existing products');
     
     // Transform and insert teas
     const products = teasData.teas.map(transformTeaToProduct);
-    await Product.insertMany(products);
+    console.log(`Preparing to insert ${products.length} products...`);
     
-    console.log('Database seeded successfully!');
+    const insertedProducts = await Product.insertMany(products);
+    console.log(`Successfully inserted ${insertedProducts.length} products`);
+    
+    // Verify the insertion
+    const count = await Product.countDocuments();
+    console.log(`Total products in database: ${count}`);
     
   } catch (error) {
     console.error('Error seeding database:', error);
