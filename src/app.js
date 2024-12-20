@@ -5,6 +5,7 @@ require('dotenv').config();
 
 // Import routes
 const authRoutes = require('./routes/auth.routes');
+const teaRoutes = require('./routes/tea.routes');
 
 // Initialize express app
 const app = express();
@@ -33,6 +34,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/tea-haven
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/teas', teaRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
