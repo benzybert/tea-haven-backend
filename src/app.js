@@ -4,7 +4,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 // Import routes
-const authRoutes = require('./routes/auth.routes');
+const authRoutes = require('./routes/auth');
 const teaRoutes = require('./routes/tea.routes');
 
 // Initialize express app
