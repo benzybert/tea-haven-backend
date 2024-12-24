@@ -2,6 +2,12 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
+// Handle registration logic
+    // 1. Get user data
+    // 2. Check if user exists
+    // 3. Hash password
+    // 4. Save user to database
+    // 5. Send response
 exports.register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -40,6 +46,12 @@ exports.register = async (req, res) => {
   }
 };
 
+// Handle login logic
+    // 1. Get credentials
+    // 2. Verify user exists
+    // 3. Check password
+    // 4. Generate JWT token
+    // 5. Send response
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;

@@ -1,5 +1,8 @@
 const Product = require('../models/Product');
 
+// Handle tea retrieval logic
+    // 1. Get teas from database
+    // 2. Send response
 exports.getAllTeas = async (req, res, next) => {
   try {
     const teas = await Product.find({});
