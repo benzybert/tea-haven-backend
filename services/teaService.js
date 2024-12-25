@@ -1,9 +1,9 @@
 // services/teaService.js
-const TeaRepository = require('../repositories/teaRepository');
+const teaRepository = require('../repositories/teaRepository');  // note: lowercase 't'
 
 class TeaService {
     constructor() {
-        this.teaRepository = new TeaRepository();
+        this.teaRepository = teaRepository;  // use the instance directly, don't create new
     }
 
     async getAllTeas() {
