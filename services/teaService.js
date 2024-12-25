@@ -1,32 +1,22 @@
-// backend/services/teaService.js
-// This service will handle the logic for fetching tea data. It will use 
-// the data from the teas.json file to return the required data to the controller.
-
-const teas = require('../data/teas.json');
+// services/teaService.js
+const TeaRepository = require('../repositories/teaRepository');
 
 class TeaService {
-  // Get all teas
-  getAllTeas() {
-    return teas.teas;
-  }
-
-  // Get tea by id
-  getTeaById(id) {
-    const tea = teas.teas.find(t => t.id === parseInt(id));
-    if (!tea) {
-      const error = new Error('Tea not found');
-      error.statusCode = 404;
-      throw error;
+    constructor() {
+        this.teaRepository = new TeaRepository();
     }
-    return tea;
-  }
 
-  // Get teas by type
-  getTeasByType(type) {
-    return teas.teas.filter(
-      t => t.type.toLowerCase() === type.toLowerCase()
-    );
-  }
+    async getAllTeas() {
+        return await this.teaRepository.findAll();
+    }
+
+    async getTeaById(id) {
+        return await this.teaRepository.findById(id);
+    }
+
+    async getTeasByType(type) {
+        return await this.teaRepository.findByType(type);
+    }
 }
 
 module.exports = new TeaService();
