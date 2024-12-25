@@ -1,8 +1,6 @@
-// routes/auth.js
 const express = require('express');
 const router = express.Router();
-const AuthController = require('../controllers/authController');
-const authController = new AuthController();
+const authController = require('../controllers/authController');  // Just use the instance directly
 
 router.post('/register', authController.register.bind(authController));
 router.post('/login', authController.login.bind(authController));

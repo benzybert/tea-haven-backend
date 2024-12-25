@@ -1,5 +1,5 @@
 // repositories/teaRepository.js
-const Tea = require('../models/Tea');
+const Tea = require('../models/Product');
 
 class TeaRepository {
     async findAll() {
