@@ -131,8 +131,7 @@
       "origin": "Japan",
       "steepTime": "Whisk in hot water",
       "temperature": "160-170°F"
-    }
-    ,
+    },
     {
       "id": 13,
       "title": "White Peony",
@@ -196,6 +195,61 @@
       "description": "Spiced black tea blend with cinnamon, cardamom, and ginger",
       "image": "/images/chai.jpg",
       "origin": "India",
+      "steepTime": "5-7 minutes",
+      "temperature": "200-212°F"
+    },
+    {
+      "id": 19,
+      "title": "Silver Needle",
+      "type": "white",
+      "price": 45.99,
+      "description": "Exclusive white tea made from only buds with a subtle sweet flavor",
+      "image": "/images/silver-needle.jpg",
+      "origin": "China",
+      "steepTime": "2-3 minutes",
+      "temperature": "170-180°F"
+    },
+    {
+      "id": 20,
+      "title": "Gyokuro",
+      "type": "green",
+      "price": 48.99,
+      "description": "Shade-grown premium Japanese green tea with umami notes",
+      "image": "/images/gyokuro.jpg",
+      "origin": "Japan",
+      "steepTime": "1-2 minutes",
+      "temperature": "140-150°F"
+    },
+    {
+      "id": 21,
+      "title": "Oolong Dan Cong",
+      "type": "oolong",
+      "price": 36.99,
+      "description": "Complex oolong with natural honey and floral notes",
+      "image": "/images/dan-cong.jpg",
+      "origin": "China",
+      "steepTime": "3-4 minutes",
+      "temperature": "185-195°F"
+    },
+    {
+      "id": 22,
+      "title": "Golden Monkey",
+      "type": "black",
+      "price": 32.99,
+      "description": "Premium black tea with chocolate and honey notes",
+      "image": "/images/golden-monkey.jpg",
+      "origin": "China",
+      "steepTime": "3-4 minutes",
+      "temperature": "190-200°F"
+    },
+    {
+      "id": 23,
+      "title": "Lavender Dreams",
+      "type": "herbal",
+      "price": 22.99,
+      "description": "Calming blend of lavender, chamomile, and vanilla",
+      "image": "/images/lavender-dreams.jpg",
+      "origin": "France",
       "steepTime": "5-7 minutes",
       "temperature": "200-212°F"
     }
