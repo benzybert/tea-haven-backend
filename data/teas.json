@@ -132,5 +132,72 @@
       "steepTime": "Whisk in hot water",
       "temperature": "160-170°F"
     }
+    ,
+    {
+      "id": 13,
+      "title": "White Peony",
+      "type": "white",
+      "price": 25.99,
+      "description": "Delicate white tea with floral and fruity notes",
+      "image": "/images/white-peony.jpg",
+      "origin": "China",
+      "steepTime": "2-3 minutes",
+      "temperature": "175-185°F"
+    },
+    {
+      "id": 14,
+      "title": "Genmaicha",
+      "type": "green",
+      "price": 23.99,
+      "description": "Japanese green tea blended with roasted brown rice",
+      "image": "/images/genmaicha.jpg",
+      "origin": "Japan",
+      "steepTime": "2-3 minutes",
+      "temperature": "175-185°F"
+    },
+    {
+      "id": 15,
+      "title": "Hibiscus Bliss",
+      "type": "herbal",
+      "price": 19.99,
+      "description": "Tart and tangy herbal tea with a deep red color",
+      "image": "/images/hibiscus.jpg",
+      "origin": "Egypt",
+      "steepTime": "5-7 minutes",
+      "temperature": "200-212°F"
+    },
+    {
+      "id": 16,
+      "title": "Lapsang Souchong",
+      "type": "black",
+      "price": 26.99,
+      "description": "Smoky black tea with a distinctive pine flavor",
+      "image": "/images/lapsang-souchong.jpg",
+      "origin": "China",
+      "steepTime": "4-5 minutes",
+      "temperature": "200-212°F"
+    },
+    {
+      "id": 17,
+      "title": "Pu-erh",
+      "type": "fermented",
+      "price": 28.99,
+      "description": "Rich and earthy aged tea with a smooth finish",
+      "image": "/images/pu-erh.jpg",
+      "origin": "China",
+      "steepTime": "3-4 minutes",
+      "temperature": "200-212°F"
+    },
+    {
+      "id": 18,
+      "title": "Chai",
+      "type": "black",
+      "price": 21.99,
+      "description": "Spiced black tea blend with cinnamon, cardamom, and ginger",
+      "image": "/images/chai.jpg",
+      "origin": "India",
+      "steepTime": "5-7 minutes",
+      "temperature": "200-212°F"
+    }
   ]
 }
