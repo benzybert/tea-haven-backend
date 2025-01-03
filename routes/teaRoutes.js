@@ -3,12 +3,15 @@ const router = express.Router();
 const teaController = require('../controllers/teaController');
 
 // Get all teas
-router.get('/search', teaController.getAllTeas);
+router.get('/', teaController.getAllTeas);
 
-// Get tea by id
+// Get teas by search query
+router.get('/search', teaController.searchTeas);
+
+// Get teas by category
+router.get('/category/:category', teaController.getTeasByCategory);
+
+// Get tea by id (keep this last to avoid route conflicts)
 router.get('/:id', teaController.getTeaById);
-
-// Get teas by type
-router.get('/type/:type', teaController.getTeasByType);
 
 module.exports = router;
