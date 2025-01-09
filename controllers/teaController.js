@@ -1,32 +1,47 @@
-// backend/controllers/teaController.js
-// This controller will handle the logic for fetching tea data.
-//  It will use the teaService to return the required data to the client.
-
+// controllers/teaController.js
 const teaService = require('../services/teaService');
 
-exports.getAllTeas = (req, res, next) => {
-  try {
-    const teas = teaService.getAllTeas();
-    res.json({ products: teas });
-  } catch (error) {
-    next(error);
-  }
-};
+class TeaController {
+    async getAllTeas(req, res, next) {
+        try {
+            const teas = await teaService.getAllTeas();
+            res.json(teas);
+        } catch (error) {
+            next(error);
+        }
+    }
 
-exports.getTeaById = (req, res, next) => {
-  try {
-    const tea = teaService.getTeaById(req.params.id);
-    res.json(tea);
-  } catch (error) {
-    next(error);
-  }
-};
+    async searchTeas(req, res, next) {
+        try {
+            const { query } = req.query;
+            const teas = await teaService.searchTeas(query);
+            res.json(teas);
+        } catch (error) {
+            next(error);
+        }
+    }
 
-exports.getTeasByType = (req, res, next) => {
-  try {
-    const teas = teaService.getTeasByType(req.params.type);
-    res.json({ products: teas });
-  } catch (error) {
-    next(error);
-  }
-};
+    async getTeasByCategory(req, res, next) {
+        try {
+            const { category } = req.params;
+            const teas = await teaService.getTeasByCategory(category);
+            res.json(teas);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getTeaById(req, res, next) {
+        try {
+            const tea = await teaService.getTeaById(req.params.id);
+            if (!tea) {
+                return res.status(404).json({ message: 'Tea not found' });
+            }
+            res.json(tea);
+        } catch (error) {
+            next(error);
+        }
+    }
+}
+
+module.exports = new TeaController();

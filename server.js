@@ -1,23 +1,35 @@
-const express = require('express'); // Import express
-const cors = require('cors'); // Import cors
-const connectDB = require('./config/db'); // Import connectDB
-const { port } = require('./config/config'); // Import port
-const errorHandler = require('./middleware/errorHandler'); // Import errorHandler
+const express = require('express');
+const cors = require('cors');
+require('dotenv').config();
+const connectDB = require('./config/db');
 
-const app = express(); // Initialize express
 
-// Middleware to parse incoming requests
-app.use(cors()); 
-app.use(express.json()); 
+const app = express();
+
+// Middleware
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
+app.use(express.json());
 
 // Connect to MongoDB
 connectDB();
 
+
 // Routes
-const teaRoutes = require('./routes/teaRoutes');
-app.use('/api/teas', teaRoutes);
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/teas', require('./routes/teaRoutes'));
 
-// Error Handler (should be last)
-app.use(errorHandler);
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Something went wrong!' });
+});
 
-app.listen(port, () => console.log(`Server running on port ${port}`));
+// Explicitly use port 5001
+const PORT = 5001;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});

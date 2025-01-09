@@ -37,7 +37,7 @@ The backend of the Tea Haven E-commerce application is built to handle all serve
     ```
 4. Create a `.env` file in the root of the backend directory and add the following environment variables:
     ```
-    PORT=5000
+    PORT=5001
     MONGODB_URI=your_mongodb_uri
     JWT_SECRET=your_jwt_secret
     ```
@@ -47,7 +47,7 @@ The backend of the Tea Haven E-commerce application is built to handle all serve
     ```bash
     npm start
     ```
-2. The server will run on `http://localhost:5000`.
+2. The server will run on `http://localhost:5001`.
 
 ## API Endpoints
 - `POST /api/auth/register` - Register a new user
@@ -61,4 +61,4 @@ The backend of the Tea Haven E-commerce application is built to handle all serve
 Contributions are welcome! Please open an issue or submit a pull request.
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License......
