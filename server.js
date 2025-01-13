@@ -20,6 +20,7 @@ connectDB();
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/teas', require('./routes/teaRoutes'));
+app.use('/api/chatbot', require('./routes/chatbotRoutes'));
 
 // Error handling middleware
 app.use((err, req, res, next) => {
