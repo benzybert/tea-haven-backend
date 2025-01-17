@@ -17,6 +17,7 @@ mongoose.connect(process.env.MONGODB_URI)
 
     // Transform tea data
     const products = teasData.teas.map(tea => ({
+      originalId: tea.id,
       name: tea.title,
       description: tea.description,
       price: tea.price,
