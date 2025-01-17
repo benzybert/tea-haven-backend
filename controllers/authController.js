@@ -1,4 +1,4 @@
-// controllers/authController.js
+// controllers/authController.js smdcskdmclsd
 const authService = require('../services/authService');
 
 class AuthController {
